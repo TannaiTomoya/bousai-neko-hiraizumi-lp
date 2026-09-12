@@ -6,10 +6,10 @@
     <title>ぼうさいネコ＠平泉 ｜ 人の目は、高いところにある。</title>
     <meta
       name="description"
-      content="岩手県平泉町の消火栓223件を、猫の目の高さで見回るブラウザゲーム。1回150秒、インストール不要。中尊寺通り周辺の4か所から始まります。"
+      content="岩手県平泉町の消火栓を、猫の目の高さで見回るブラウザゲーム。OPから始まり、150秒の見回り、帰る選択でエンディングへ。インストール不要。"
     />
     <meta property="og:title" content="ぼうさいネコ＠平泉" />
-    <meta property="og:description" content="150秒だけ、猫になる。平泉町の消火栓を、猫の目の高さで見回る防災ゲーム。" />
+    <meta property="og:description" content="OPから始まる、150秒だけ猫になる防災ゲーム。平泉町の消火栓を、猫の目の高さで見回ります。" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/screens/patrol.jpg" />
     <meta name="theme-color" content="#eef3f6" />
@@ -868,9 +868,9 @@
       </div>
 
       <section class="sec sec--lit" id="play">
-        <h2 class="h2">猫をえらぶ。150秒、見回る。結果を読む。</h2>
+        <h2 class="h2">はじめる。猫をえらぶ。150秒、見回る。帰る。</h2>
         <p class="lead">
-          スマートフォンのブラウザで動きます。インストールも、ログインもありません。
+          スマートフォンのブラウザで動きます。インストールも、ログインもありません。OPの映像と曲から入り、見回り、結果、帰る選択までが一続きです。
         </p>
 
         <div class="facts" style="margin-bottom: clamp(3rem, 8vh, 5rem)">
@@ -881,6 +881,12 @@
         </div>
 
         <div class="loop" tabindex="0" role="region" aria-label="一周の流れ。横にスクロールします">
+          <article class="step">
+            <img src="assets/screens/opening.jpg" alt="オープニング映像の画面。はじめるとスキップがある" loading="lazy" />
+            <b>はじまる</b>
+            <h4>OPの映像と曲から入る</h4>
+            <p>「はじめる」で曲が流れ、「スキップ」で猫えらびへ進みます。曲は猫をえらぶあいだも続きます。</p>
+          </article>
           <article class="step">
             <img src="assets/screens/select-cats.jpg" alt="猫をえらぶ画面。タキザワは「えらべる」、シラヤマは「まだ いない」" loading="lazy" />
             <b>えらぶ</b>
@@ -905,13 +911,19 @@
             <h4>同じ町を、もう一周</h4>
             <p>前回のタイムと比べられます。道を覚えるほど速くなり、覚えるのはプレイヤーの側です。</p>
           </article>
+          <article class="step">
+            <img src="assets/screens/ending.jpg" alt="エンディング映像の画面。スキップで猫えらびへ戻れる" loading="lazy" />
+            <b>かえる</b>
+            <h4>「今日もう帰るにゃ」の先</h4>
+            <p>帰るとエンディングの映像と曲が流れます。スキップすると、また猫えらびへ戻ります。</p>
+          </article>
         </div>
       </section>
 
       <section class="sec sec--lit">
         <h2 class="h2">見回っているあいだは、ずっと猫の高さ。</h2>
         <p class="lead">
-          右上のミニ地図に、赤い点と縄張りの円。近づくと「てんけんする」が点きます。壁にぶつかると「あいたっ」と言います。
+          見回りが始まると曲が切り替わります。右上のミニ地図に、赤い点と縄張りの円。近づくと「てんけんする」が点きます。壁にぶつかると「あいたっ」と言います。
         </p>
         <div class="wide">
           <img src="assets/screens/patrol.jpg" alt="猫の目線で中尊寺通りを見回る画面。突き当たりに赤い消火栓が立っている" loading="lazy" />
@@ -1039,7 +1051,7 @@
       <section class="end" id="end">
         <div class="end__panel">
           <img class="end__cat" src="assets/characters/takizawa-walk.png" alt="" aria-hidden="true" />
-          <h2>150秒だけ、猫になってみてください。</h2>
+          <h2>OPから始めて、150秒だけ猫になってみてください。</h2>
           <p>ブラウザで開くだけです。インストールも、ログインもありません。</p>
           <div class="end__act">
             <a class="btn btn--play" href="https://bousai-neko-hiraizumi.vercel.app/" data-cta>ゲームで遊ぶ</a>
