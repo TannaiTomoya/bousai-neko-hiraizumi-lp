@@ -803,7 +803,7 @@
         <a href="#hydrants">平泉の消火栓</a>
         <a href="#report">目撃報告</a>
       </nav>
-      <a class="btn btn--play btn--small" href="#end" data-cta aria-disabled="true">ゲームで遊ぶ</a>
+      <a class="btn btn--play btn--small" href="https://bousai-neko-hiraizumi.vercel.app/" data-cta>ゲームで遊ぶ</a>
     </header>
 
     <aside class="gauge" aria-hidden="true">
@@ -825,7 +825,7 @@
               だから消火栓は見つからない。岩手県平泉町の消火栓を、猫の目の高さで見回るブラウザゲームです。1回150秒。
             </p>
             <div class="hero__act">
-              <a class="btn btn--play" href="#end" data-cta aria-disabled="true">ゲームで遊ぶ</a>
+              <a class="btn btn--play" href="https://bousai-neko-hiraizumi.vercel.app/" data-cta>ゲームで遊ぶ</a>
               <a class="btn btn--ghost" href="#play">遊び方を見る</a>
             </div>
           </div>
@@ -1042,7 +1042,7 @@
           <h2>150秒だけ、猫になってみてください。</h2>
           <p>ブラウザで開くだけです。インストールも、ログインもありません。</p>
           <div class="end__act">
-            <a class="btn btn--play" href="#end" data-cta aria-disabled="true">ゲームで遊ぶ</a>
+            <a class="btn btn--play" href="https://bousai-neko-hiraizumi.vercel.app/" data-cta>ゲームで遊ぶ</a>
             <a class="btn btn--ghost" href="#" data-report hidden>ねこの もくげきほうこく</a>
           </div>
         </div>
@@ -1062,15 +1062,21 @@
     <!-- ============ 設定：URL が変わったらここだけ変更 ============ -->
     <script>
       (() => {
-        const local =
-          location.hostname === 'localhost' ||
-          location.hostname === '127.0.0.1';
+        const params = new URLSearchParams(location.search);
+        const localHost =
+          location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        // ?game=local … ローカルゲーム(OP確認)
+        // ?game=prod  … 本番Vercelを強制
+        // それ以外   … ローカルホストなら local、本番ホストなら Vercel
+        const force = params.get('game');
+        const localGame = 'http://127.0.0.1:5173/';
+        const prodGame = 'https://bousai-neko-hiraizumi.vercel.app/';
+        const gameUrl =
+          force === 'local' ? localGame : force === 'prod' ? prodGame : localHost ? localGame : prodGame;
+
         window.BN_CONFIG = {
-          // ローカル LP → ローカルゲーム（OP付き）。本番は公開 URL。
           // 空文字にすると CTA が「準備中」表示に戻る。
-          gameUrl: local
-            ? 'http://127.0.0.1:5173/'
-            : 'https://bousai-neko-hiraizumi.vercel.app/',
+          gameUrl,
           // 「ねこの もくげきほうこく」フォームの URL。空文字のあいだは非表示。
           reportUrl: ''
         };
@@ -1091,7 +1097,10 @@
             a.rel = 'noopener';
           });
         } else {
-          ctas.forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+          ctas.forEach((a) => {
+            a.setAttribute('aria-disabled', 'true');
+            a.addEventListener('click', (e) => e.preventDefault());
+          });
         }
         const report = document.querySelector('[data-report]');
         if (report && cfg.reportUrl) {
