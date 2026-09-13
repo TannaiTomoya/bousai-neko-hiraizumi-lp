@@ -2,9 +2,9 @@
 
 岩手県平泉町の消火栓を、猫の目の高さで見回る防災ゲーム「ぼうさいネコ＠平泉」の紹介ページ。
 
-- このページ: https://tannaitomoya.github.io/bousai-neko-hiraizumi-lp/
+- このページ: https://bousai-neko-hiraizumi-lp.vercel.app/
 - ゲーム本体: https://bousai-neko-hiraizumi.vercel.app/
-- 構成: `index.html` 1枚（ビルド不要・GitHub Pages で直接配信）
+- 構成: `index.html` 1枚（ビルド不要・Vercel で静的配信）
 
 ## 関連リポジトリ
 
